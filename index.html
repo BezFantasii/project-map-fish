@@ -19,9 +19,10 @@
     <div class="navbar">
         <div class="search">
         <div id="jsonData"></div>
-        <input type="text" id="searchInput" placeholder="Введите запрос">
-        <button onclick="search()">Искать</button>
+        <input class="searchinp" type="text" id="searchInput" placeholder="Введите запрос">
+        <button class="serchbtn" onclick="search()">Искать</button>
         <ul id="resultsList"></ul>
+      
     </div>
       <div class="dropdown">
         <button class="dropbtn">Сайты партнёров 
@@ -37,6 +38,7 @@
     </div>
     
  <div class="child">  
+    <img src="logo.png">
     <div class="row">
     <div class="col-sm">
     <div class="fish_menu">
@@ -70,7 +72,8 @@
     sh = "Шамса"
     message = 'Дискам(Семейная корзинка)'
     // Добавьте точки на карту
-
+    L.marker([53.068931, 158.615575]).addTo(map)
+    .bindPopup('Империал');
     L.marker([53.065761, 158.600833]).addTo(map)
     .bindPopup('Клевер');
     L.marker([53.054758, 158.639793]).addTo(map)
@@ -186,5 +189,11 @@ function search() {
     });
   }
 </script>
+<div class="contacts">
+    <p>Контакты:</p>
+<p>ФИО: Ефимова Валерия Владимировна</p>   
+<p>Должность: начальник отдела цифровой трансформации и проектной деятельности</p>
+<p>Телефон: +7 (4152) 412025 (доб. 300), EfimovaVV@kamgov.ru</p>
+</div>
 </body>
 </html>
