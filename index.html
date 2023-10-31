@@ -4,6 +4,7 @@
     <title>My Map Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="data.json">
     <link rel="stylesheet" href="bootstrap/bootstrap-5.3.2/bootstrap-5.3.2/b">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -16,7 +17,12 @@
   <!-- Содержимое первого экрана -->
   <div class="parent">
     <div class="navbar">
-      
+        <div class="search">
+        <div id="jsonData"></div>
+        <input type="text" id="searchInput" placeholder="Введите запрос">
+        <button onclick="search()">Искать</button>
+        <ul id="resultsList"></ul>
+    </div>
       <div class="dropdown">
         <button class="dropbtn">Сайты партнёров 
           <i class="fa fa-caret-down"></i>
@@ -36,15 +42,15 @@
     <div class="fish_menu">
         <h4>В рамках проекта, в зависимости от сезона, жители края могут приобрести (примерные цены):</h4>
         <p>камбалу мороженую б/г: ~63 руб/кг;</p>
-           <p> сельдь мороженую: ~57,5-62 руб/кг;</p>
-           <p>кальмар мороженый неочищенный: ~67,5-95 руб/кг;</p>
-            <p>кальмар мороженый очищенный: ~230 руб/кг;</p>
-            <p>филе минтая мороженого: ~114 руб/кг;</p>
-                <p> треску мороженую б/г: ~86 руб/кг;</p>
-                    <p>навагу мороженую: ~63 руб/кг;</p>
-                        <p> минтай мороженый б/г: ~63 руб/кг;</p>
-                            <p>минтай охлажденный: ~50 руб/кг;</p>
-                                <p>горбуша замороженная: ~69 руб/кг.</p>
+        <p> сельдь мороженую: ~57,5-62 руб/кг;</p>
+        <p>кальмар мороженый неочищенный: ~67,5-95 руб/кг;</p>
+        <p>кальмар мороженый очищенный: ~230 руб/кг;</p>
+        <p>филе минтая мороженого: ~114 руб/кг;</p>
+        <p> треску мороженую б/г: ~86 руб/кг;</p>
+        <p>навагу мороженую: ~63 руб/кг;</p>
+        <p> минтай мороженый б/г: ~63 руб/кг;</p>
+        <p>минтай охлажденный: ~50 руб/кг;</p>
+        <p>горбуша замороженная: ~69 руб/кг.</p>
     </div> 
     </div>
     
@@ -64,75 +70,73 @@
     sh = "Шамса"
     message = 'Дискам(Семейная корзинка)'
     // Добавьте точки на карту
+
+    L.marker([53.065761, 158.600833]).addTo(map)
+    .bindPopup('Клевер');
+    L.marker([53.054758, 158.639793]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.055689, 158.662646]).addTo(map)
+    .bindPopup(sh);
+    L.marker([52.976878, 158.692021]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.072048, 158.587350]).addTo(map)
+    .bindPopup(sh);
+    L.marker([52.980538, 158.680460]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.066626, 158.641841]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.069023, 158.618791]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.055332, 158.673965]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.078637, 158.648210]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.064386, 158.625618]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.183981, 158.387789]).addTo(map)
+    .bindPopup(sh);
+    L.marker([53.078897, 158.628843]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.052994, 158.639335]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.067622, 158.598749]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.057356, 158.628789]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.051170, 158.663248]).addTo(map)
+    .bindPopup(message);
+    L.marker([52.970452, 158.696468]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.076949, 158.648803]).addTo(map)
+    .bindPopup(message);
+    L.marker([52.986084, 158.672052]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.039021, 158.659251]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.064949, 158.644267]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.187024, 158.383890]).addTo(map)
+    .bindPopup(message);
+    L.marker([52.934873, 158.410292]).addTo(map)
+    .bindPopup(message);
+    L.marker([53.272521, 158.292747]).addTo(map)
+    .bindPopup(message);
+    L.marker([52.823866, 156.279839]).addTo(map)
+    .bindPopup(message);
+    L.marker([54.697547, 158.622025]).addTo(map)
+    .bindPopup(message);
+    L.marker([52.930878, 158.397796]).addTo(map)
+    .bindPopup(message);
+    L.marker([51.496308, 156.494293]).addTo(map)
+    .bindPopup("Salmonica");
+    L.marker([54.696538, 158.630541]).addTo(map)
+    .bindPopup("BEER HOUSE");
+    L.marker([56.261773, 162.591482]).addTo(map)
+    .bindPopup("Рыба Камчатки");
     
-        L.marker([53.065761, 158.600833]).addTo(map)
-        .bindPopup('Клевер');
-        L.marker([53.054758, 158.639793]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.055689, 158.662646]).addTo(map)
-        .bindPopup(sh);
-        L.marker([52.976878, 158.692021]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.072048, 158.587350]).addTo(map)
-        .bindPopup(sh);
-        L.marker([52.980538, 158.680460]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.066626, 158.641841]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.069023, 158.618791]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.055332, 158.673965]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.078637, 158.648210]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.064386, 158.625618]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.183981, 158.387789]).addTo(map)
-        .bindPopup(sh);
-        L.marker([53.078897, 158.628843]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.052994, 158.639335]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.067622, 158.598749]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.057356, 158.628789]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.051170, 158.663248]).addTo(map)
-        .bindPopup(message);
-        L.marker([52.970452, 158.696468]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.076949, 158.648803]).addTo(map)
-        .bindPopup(message);
-        L.marker([52.986084, 158.672052]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.039021, 158.659251]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.064949, 158.644267]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.187024, 158.383890]).addTo(map)
-        .bindPopup(message);
-        L.marker([52.934873, 158.410292]).addTo(map)
-        .bindPopup(message);
-        L.marker([53.272521, 158.292747]).addTo(map)
-        .bindPopup(message);
-        L.marker([52.823866, 156.279839]).addTo(map)
-        .bindPopup(message);
-        L.marker([54.697547, 158.622025]).addTo(map)
-        .bindPopup(message);
-        L.marker([52.930878, 158.397796]).addTo(map)
-        .bindPopup(message);
-        L.marker([51.496308, 156.494293]).addTo(map)
-        .bindPopup("Salmonica");
-        L.marker([54.696538, 158.630541]).addTo(map)
-        .bindPopup("BEER HOUSE");
-        L.marker([56.261773, 162.591482]).addTo(map)
-        .bindPopup("Рыба Камчатки");
-        var searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener("input", search);
-        document.innerHTML(resultsList)
 </script>
-<input type="text" id="searchInput" placeholder="Поиск...">
-<ul id="resultsList"></ul>
+
+
 
 </div>
 </div>
@@ -140,5 +144,47 @@
 
 </div>
 
+    
+
+    <script>
+ 
+function search() { 
+    const jsonData = [  // Здесь можно представить свои JSON данные
+        { name: "Навага", content: "Шамса, Семейная корзинка", price: "63 руб/кг" ,region: "Петропавловск-Камчатский, Елизово, Мильково, Раздольный"},
+        { name: "Горбуша", content: "Шамса, Семейная корзинка", price: "69 руб/кг" ,region: "Петропавловск-Камчатский, Елизово, Усть-Большерецк, Раздольный"},
+        { name: "Треска", content: "Шамса, Семейная корзинка", price: "86 руб/кг", region: "Петропавловск-Камчатский, Елизово, Усть-Большерецк"},
+        { name: "Минтай", content: "Шамса, Семейная корзинка", price: "120 руб/кг" ,region: "Петропавловск-Камчатский, Елизово"},
+        { name: "Камбала", content: "Шамса, Семейная корзинка", price: "63 руб/кг" ,region: "Петропавловск-Камчатский, Елизово, Усть-Большерецк"},
+        { name: "Кета", content: "Шамса, Семейная корзинка", price: "95 руб/кг" , region: "Усть-Большерецк, Раздольный, Мильково"}
+        // Добавь ещё данные
+    ];
+    var input = document.getElementById("searchInput");
+    var query = input.value.toLowerCase();
+    if (query.length ===0){
+        return;
+    }
+    var results = jsonData.filter(function(item) {
+      return item.name.toLowerCase().includes(query) ||
+        item.content.toLowerCase().includes(query);
+
+    });
+  
+    var resultsList = document.getElementById("resultsList");
+    resultsList.innerHTML = "";
+    console.log(results)
+    if (results.length === 0) {
+      var li = document.createElement("li");
+      li.textContent = "Результаты не найдены"; 
+      resultsList.appendChild(li);
+     return;
+    }
+    results.forEach(function(item) {
+      var li = document.createElement("li");
+      li.textContent = item.name + " - " + item.content+ " "+item.price+" "+ item.region    ;
+      resultsList.appendChild(li);
+      
+    });
+  }
+</script>
 </body>
 </html>
