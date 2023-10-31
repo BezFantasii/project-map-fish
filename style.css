@@ -1,20 +1,22 @@
+
 .parent{
-	position: relative;
+	
+	background-color:white;
 	
 }
-.child{
-	position: fixed
-	;
-}
+
 marker{
     background-image: url(location-marker.svg);
     width: 15px;
     height: 15px;
-    background-color: black;
+    background-color:#027175;
+
 }
 #map{
-    margin: 5%;
-
+    margin: auto;
+	margin-left: 5%;
+	margin-right: 5%;
+	justify-content: center;
 
     border-color: blue;
     border-radius: 5%;
@@ -37,7 +39,7 @@ header {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #222222;
+	background-color: #027175;
 	transition: all 0.5s;
 }
 .menu-btn span:nth-of-type(2) {
@@ -70,11 +72,12 @@ body {
   
   .navbar {
 	overflow: hidden;
-	background-color: #333;
+	background-color: #027175;
+	color: #027175;
   }
   
   .navbar a {
-	float: left;
+	float: right;
 	font-size: 16px;
 	color: white;
 	text-align: center;
@@ -99,7 +102,7 @@ body {
   }
   
   .navbar a:hover, .dropdown:hover .dropbtn {
-	background-color: red;
+	background-color: #01676A;
   }
   
   .dropdown-content {
@@ -121,9 +124,45 @@ body {
   }
   
   .dropdown-content a:hover {
-	background-color: #ddd;
+	background-color:#01676A;
   }
   
   .dropdown:hover .dropdown-content {
 	display: block;
   }
+
+.screens{
+	position: fixed;
+	margin-left:80% ;
+}
+
+.screen {
+   display: none;
+}
+#results {
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+}
+
+.btn{
+	flex: 1;
+
+}
+.btn2{
+	flex: 1;
+	
+}
+.dropbtn{
+	flex: 1;
+	
+}
+.fish_menu{
+  margin: 5%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-right: 50%;
+  justify-content: center;
+}
+
+

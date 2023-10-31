@@ -4,67 +4,141 @@
     <title>My Map Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.3.2/bootstrap-5.3.2/b">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
-    <div class="parent">
-        <div class="navbar">
-          <a href="#home">Главная</a>
-          <a href="#news">Новости</a>
-          <div class="dropdown">
-            <button class="dropbtn">Меню 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Гамбургер</a>
-              <a href="#">Чизбургер</a>
-              <a href="https://shamsa.net/retail">Беконбургер</a>
-            </div>
-          </div> 
-          <a href="#about">О нас</a>
+    
+
+
+
+  <!-- Содержимое первого экрана -->
+  <div class="parent">
+    <div class="navbar">
+      
+      <div class="dropdown">
+        <button class="dropbtn">Сайты партнёров 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="https://salmonica.fish/">Salmonica</a>
+          <a href="https://shamsa.net/retail">"Шамса"</a>
         </div>
-        
-        <h3>Пример бургер меню на HTML</h3>
-        <p>Это простой пример бургер меню на HTML.</p>
-     <div class="child">   
-        <div id="map" style="height: 400px; width: 500px;"></div>
-    <script>
-
-        var map = L.map('map').setView([53.076872, 158.648611], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom: 5,}).addTo(map);
-            // определяем границы первого прямоугольника - внешнего
-        let message;
-
-        message = 'Hello'
-        // Добавьте точки на карту
-        L.marker([53.076872, 158.648611]).addTo(map)
-            .bindPopup(message);
-        L.marker([54.076872, 158.648611]).addTo(map)
-            .bindPopup('Точка 2');
-        
-        
-        // Кнопка центра
-        let center = L.control({
-        position: 'topright'
-        });
-        center.onAdd = function(map) {
-        let center = L.DomUtil.create('div', 'map-control-button center-button');
-        return center;
-        };
-        center.addTo(map);
-        // Добавьте всплывающее окно к метке
-        
-
-
-
-var searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", search);
-
-    </script>
-    <input type="text" id="searchInput" placeholder="Поиск...">
-    <ul id="resultsList"></ul>
+      </div> 
+      
+      
     </div>
+    
+ <div class="child">  
+    <div class="row">
+    <div class="col-sm">
+    <div class="fish_menu">
+        <h4>В рамках проекта, в зависимости от сезона, жители края могут приобрести (примерные цены):</h4>
+        <p>камбалу мороженую б/г: ~63 руб/кг;</p>
+           <p> сельдь мороженую: ~57,5-62 руб/кг;</p>
+           <p>кальмар мороженый неочищенный: ~67,5-95 руб/кг;</p>
+            <p>кальмар мороженый очищенный: ~230 руб/кг;</p>
+            <p>филе минтая мороженого: ~114 руб/кг;</p>
+                <p> треску мороженую б/г: ~86 руб/кг;</p>
+                    <p>навагу мороженую: ~63 руб/кг;</p>
+                        <p> минтай мороженый б/г: ~63 руб/кг;</p>
+                            <p>минтай охлажденный: ~50 руб/кг;</p>
+                                <p>горбуша замороженная: ~69 руб/кг.</p>
+    </div> 
     </div>
+    
+    <div class="col-sm">
+    
+</div>
+</div>
+    <div id="map" style="height: 400px; width: auto;"></div>
+    
+<script>
+
+    var map = L.map('map').setView([53.076872, 158.648611], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom: 5,}).addTo(map);
+        // определяем границы первого прямоугольника - внешнего
+    let message;
+    let sh;
+    sh = "Шамса"
+    message = 'Дискам(Семейная корзинка)'
+    // Добавьте точки на карту
+    
+        L.marker([53.065761, 158.600833]).addTo(map)
+        .bindPopup('Клевер');
+        L.marker([53.054758, 158.639793]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.055689, 158.662646]).addTo(map)
+        .bindPopup(sh);
+        L.marker([52.976878, 158.692021]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.072048, 158.587350]).addTo(map)
+        .bindPopup(sh);
+        L.marker([52.980538, 158.680460]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.066626, 158.641841]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.069023, 158.618791]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.055332, 158.673965]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.078637, 158.648210]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.064386, 158.625618]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.183981, 158.387789]).addTo(map)
+        .bindPopup(sh);
+        L.marker([53.078897, 158.628843]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.052994, 158.639335]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.067622, 158.598749]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.057356, 158.628789]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.051170, 158.663248]).addTo(map)
+        .bindPopup(message);
+        L.marker([52.970452, 158.696468]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.076949, 158.648803]).addTo(map)
+        .bindPopup(message);
+        L.marker([52.986084, 158.672052]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.039021, 158.659251]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.064949, 158.644267]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.187024, 158.383890]).addTo(map)
+        .bindPopup(message);
+        L.marker([52.934873, 158.410292]).addTo(map)
+        .bindPopup(message);
+        L.marker([53.272521, 158.292747]).addTo(map)
+        .bindPopup(message);
+        L.marker([52.823866, 156.279839]).addTo(map)
+        .bindPopup(message);
+        L.marker([54.697547, 158.622025]).addTo(map)
+        .bindPopup(message);
+        L.marker([52.930878, 158.397796]).addTo(map)
+        .bindPopup(message);
+        L.marker([51.496308, 156.494293]).addTo(map)
+        .bindPopup("Salmonica");
+        L.marker([54.696538, 158.630541]).addTo(map)
+        .bindPopup("BEER HOUSE");
+        L.marker([56.261773, 162.591482]).addTo(map)
+        .bindPopup("Рыба Камчатки");
+        var searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", search);
+        document.innerHTML(resultsList)
+</script>
+<input type="text" id="searchInput" placeholder="Поиск...">
+<ul id="resultsList"></ul>
+
+</div>
+</div>
+</div>
+
+</div>
+
 </body>
 </html>
